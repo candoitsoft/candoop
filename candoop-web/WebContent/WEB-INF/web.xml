@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+
+	<display-name>Candoop</display-name>
+
+	<security-constraint>
+		<display-name>JSP Protection</display-name>
+		<web-resource-collection>
+			<web-resource-name>SecureJSPPages</web-resource-name>
+			<url-pattern>*.jsp</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>nobody</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<security-role>
+		<description>Nobody should be in this role so JSP files are protected
+			from direct access.</description>
+		<role-name>nobody</role-name>
+	</security-role>
+
+	<!-- 도메인 최 상단 경로 페이지를 조회하는 서블릿 -->
+	<servlet>
+		<servlet-name>View</servlet-name>
+		<servlet-class>cdp.view.View</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>View</servlet-name>
+		<url-pattern>/View/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- 입력된 폼을 처리하는 서블릿 -->
+	<servlet>
+		<servlet-name>Confirm</servlet-name>
+		<servlet-class>cdp.view.Confirm</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Confirm</servlet-name>
+		<url-pattern>/Confirm/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 사용자 로그인 서블릿 -->
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>cdp.view.Account</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/Login/*</url-pattern>
+		<url-pattern>/Signin/*</url-pattern>
+	</servlet-mapping>
+	
+
+</web-app>
