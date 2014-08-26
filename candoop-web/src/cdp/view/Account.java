@@ -17,7 +17,7 @@ public class Account extends HttpServlet {
 			if(uri.indexOf("Login") > 0){
 				req.getRequestDispatcher("account/login.jsp").include(req, res);
 			} else if(uri.indexOf("Signin") > 0){
-				req.getRequestDispatcher("/index.jsp").include(req, res);
+				req.getRequestDispatcher("account/signin.jsp").include(req, res);
 			}
 		} catch(ServletException e){
 			e.printStackTrace();

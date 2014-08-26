@@ -9,26 +9,24 @@
 <link rel="stylesheet" href="/resource/css/signin.css">
 <script>
 function login(){
-	
+	var frm = document.loginFrm;
+	frm.method="POST";
+	frm.action="/Confirm";
+	frm.submit();
 }
 </script>
 </head>
-<body>
+<body class="body-login">
 <div class="container">
 	
-	<form class="form-signin" role="form" submit="javascript:login();">
-		<h2 class="form-signin-heading">환영합니다!</h2>
-		<input type="text" class="form-control" placeholder="아이디" required="" autofocus="">
-		<input type="password" class="form-control" placeholder="비밀번호" required="">
-<!-- 
-		<div class="checkbox">
-			<label>
-				<input type="checkbox" value="remember-me"> 자동 로그인
-			</label>
-		</div>
--->
+	<form class="form-login" role="form" name="loginFrm" action="javascript:login();">
+		<h2 class="form-login-heading">환영합니다!</h2>
+		<input type="email" name="loginEmail" class="form-control" placeholder="아이디" required="required">
+		<input type="password" name="loginPw" class="form-control" placeholder="비밀번호" required="required">
 		<button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
 		<button class="btn btn-lg btn-success btn-block" type="button" onclick="location.href='/Signin'">회원가입</button>
+		<input type="hidden" name="cmd" value="login" />
+		<input type="hidden" name="toUrl" value="/Main" />
 	</form>
 
 </div>

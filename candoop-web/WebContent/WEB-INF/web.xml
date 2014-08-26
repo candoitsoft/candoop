@@ -24,12 +24,12 @@
 
 	<!-- 도메인 최 상단 경로 페이지를 조회하는 서블릿 -->
 	<servlet>
-		<servlet-name>View</servlet-name>
-		<servlet-class>cdp.view.View</servlet-class>
+		<servlet-name>Main</servlet-name>
+		<servlet-class>cdp.view.Main</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>View</servlet-name>
-		<url-pattern>/View/*</url-pattern>
+		<servlet-name>Main</servlet-name>
+		<url-pattern>/Main/*</url-pattern>
 	</servlet-mapping>
 
 	<!-- 입력된 폼을 처리하는 서블릿 -->
@@ -53,5 +53,13 @@
 		<url-pattern>/Signin/*</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>AcAjax</servlet-name>
+		<servlet-class>cdp.ajax.AcAjax</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AcAjax</servlet-name>
+		<url-pattern>/AcAjax/*</url-pattern>
+	</servlet-mapping>
 
 </web-app>

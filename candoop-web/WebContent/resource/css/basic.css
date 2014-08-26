@@ -1,9 +1,7 @@
+* {font-family:'Nanum Barun Gothic';}
 .text-red {color:red}
 .text-blue {color:blue}
 .text-white {color:#FFFFFF }
-/*
-* {font-family:'Nanum Barun Gothic';}
-*/
 
 html {
   position: relative;
@@ -12,6 +10,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 80px;
+  background-color: #eee;
 }
 
 .footer {

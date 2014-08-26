@@ -9,4 +9,4 @@
 - [Kibana 3.1.0](http://www.elasticsearch.org/overview/elkdownloads/)
 - [Bootstrap 3.2.0](http://getbootstrap.com/)
 - [jQuery Number Plugin](https://github.com/teamdf/jquery-number)
-- [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload)
+- [jQuery-File-Upload 9.7.0](https://github.com/blueimp/jQuery-File-Upload)
