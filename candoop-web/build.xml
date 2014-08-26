@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<project name="Candoop" default="dist">
+	<property file="build.properties" />
+	
+	<target name="prepare">
+		<tstamp>
+			<format property="DSTAMP" pattern="yyyy/MM/dd"/>
+			<format property="TSTAMP" pattern="HH:mm:ss"/>
+		</tstamp>
+		<echo message="Build Start : ${DSTAMP} ${TSTAMP}" />
+	</target>
+	
+	<target name="clean" depends="prepare">
+		<delete dir="${build.dir}"></delete>
+	</target>
+	
+	<target name="compile" depends="clean">
+		<mkdir dir="${build.dir}"/>
+		<javac deprecation="off" srcdir="${src.dir}" destdir="${build.dir}" listfiles="no" failonerror="true">
+			<classpath>
+				<pathelement path="${lib.dir}"/>
+				<fileset dir="${lib.dir}">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+	
+	<target name="mkjar" depends="compile">
+		<war destFile="${target.dir}/${war.name}" webxml="${war.dir}/WEB-INF/web.xml">
+			<fileset dir="${war.dir}" includes="**/*" />
+		</war>    
+	</target>
+	
+	<target name="dist" depends="mkjar">
+	</target>
+	
+	<target name="run">
+	</target>
+	
+</project>
