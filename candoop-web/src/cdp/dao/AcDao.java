@@ -113,7 +113,9 @@ public class AcDao {
 			data.put("name", userObj.getName());
 			data.put("nicname", userObj.getNicname());
 			data.put("birthday", userObj.getBirthday());
-			data.put("phone", userObj.getPhone());
+			if(userObj.getPhone() != null && !"".equals(userObj.getPhone())){
+				data.put("phone", userObj.getPhone());
+			}
 			data.put("reg_time", new Date());
 			result = dao.inertData(property, "ac_user", data);
 		}
@@ -135,8 +137,9 @@ public class AcDao {
 		setData.put("name", userObj.getName());
 		setData.put("nicname", userObj.getNicname());
 		setData.put("birthday", userObj.getBirthday());
-		setData.put("phone", userObj.getPhone());
-		
+		if(userObj.getPhone() != null && !"".equals(userObj.getPhone())){
+			setData.put("phone", userObj.getPhone());
+		}
 		DataEntity whereData = new DataEntity();
 		whereData.put("email", userObj.getEmail());
 		
@@ -251,8 +254,12 @@ public class AcDao {
 		}
 	}
 	
+	/**
+	 * 그룹 ID 중복여부 확인
+	 * @param grpId
+	 * @return
+	 */
 	public boolean isExistGrpId(String grpId){
-		
 		StringBuffer sql = new StringBuffer();
 		String[] param = {grpId};
 		sql.append("SELECT count(*) as cnt FROM ac_grp WHERE grp_id = ?");

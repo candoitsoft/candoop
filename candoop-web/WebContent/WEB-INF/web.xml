@@ -17,19 +17,23 @@
 		</auth-constraint>
 	</security-constraint>
 	<security-role>
-		<description>Nobody should be in this role so JSP files are protected
-			from direct access.</description>
+		<description>JSP 접근 제한</description>
 		<role-name>nobody</role-name>
 	</security-role>
 
 	<!-- 도메인 최 상단 경로 페이지를 조회하는 서블릿 -->
 	<servlet>
-		<servlet-name>Main</servlet-name>
-		<servlet-class>cdp.view.Main</servlet-class>
+		<servlet-name>View</servlet-name>
+		<servlet-class>cdp.view.View</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Main</servlet-name>
-		<url-pattern>/Main/*</url-pattern>
+		<servlet-name>View</servlet-name>
+		<url-pattern>/View/*</url-pattern>
+		<url-pattern>/Dashboard/*</url-pattern>
+		<url-pattern>/Logdata/*</url-pattern>
+		<url-pattern>/Metadata/*</url-pattern>
+		<url-pattern>/Report/*</url-pattern>
+		<url-pattern>/Admin/*</url-pattern>
 	</servlet-mapping>
 
 	<!-- 입력된 폼을 처리하는 서블릿 -->
@@ -60,6 +64,16 @@
 	<servlet-mapping>
 		<servlet-name>AcAjax</servlet-name>
 		<url-pattern>/AcAjax/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 엘라스틱서치 연결 서블릿 -->
+	<servlet>
+		<servlet-name>Elasticsearch</servlet-name>
+		<servlet-class>cdp.es.CdpEsReq</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Elasticsearch</servlet-name>
+		<url-pattern>/Es/*</url-pattern>
 	</servlet-mapping>
 
 </web-app>

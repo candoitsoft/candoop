@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import cdp.comm.CdpMsg;
 import cdp.comm.CdpUserObj;
 import cdp.dao.AcDao;
 
@@ -28,13 +29,10 @@ public class Confirm extends HttpServlet {
 		CdpUserObj userObj = null;
 		
 		if(cmd == null || toUrl == null || "".equals(toUrl)){
-			out.println("<script>");
-			out.println("	alert(\"잘못된 접근입니다.\");");
-			out.println("	history.go(-1);");
-			out.println("</script>");
+			out.println(CdpMsg.approachError());
 		} else {
 			if("insertAcGrp".equals(cmd)){
-				//신규 단체 등록
+				//신규 그룹 등록
 				String grpId = req.getParameter("grpId");
 				String grpName = req.getParameter("grpName");
 				String grpText = req.getParameter("grpText");
@@ -43,10 +41,7 @@ public class Confirm extends HttpServlet {
 				if(daoRes > 0){
 					res.sendRedirect(toUrl);
 				} else {
-					out.println("<script>");
-					out.println("	alert(\"저장하는 중 오류가 발생되었습니다.\");");
-					out.println("	history.go(-1);");
-					out.println("</script>");
+					out.println(CdpMsg.saveError());
 				}
 			} else if("signin".equals(cmd)){
 				//신규 회원 가입
@@ -58,10 +53,7 @@ public class Confirm extends HttpServlet {
 					session.setAttribute("CdpUserObj", dao.getUserObj(userObj.getEmail()));
 					res.sendRedirect(toUrl);
 				} else {
-					out.println("<script>");
-					out.println("	alert(\"저장하는데 문제가 발생했습니다.\");");
-					out.println("	history.go(-1);");
-					out.println("</script>");
+					out.println(CdpMsg.saveError());
 				}
 			} else if("login".equals(cmd)){
 				//로그인
@@ -73,22 +65,19 @@ public class Confirm extends HttpServlet {
 					session.setAttribute("CdpUserObj", dao.getUserObj(email));
 					res.sendRedirect(toUrl);
 				} else if (result == 1) {
-					out.println("<script>");
-					out.println("	alert(\"비밀번호가 맞지 않습니다.\");");
-					out.println("	history.go(-1);");
-					out.println("</script>");
+					out.println(CdpMsg.error("비밀번호가 맞지 않습니다."));
 				} else if (result == 0) {
-					out.println("<script>");
-					out.println("	alert(\"없는 ID입니다. 다시 확인하고 로그인 하십시오.\");");
-					out.println("	history.go(-1);");
-					out.println("</script>");
+					out.println(CdpMsg.error("없는 ID입니다. 다시 확인하고 로그인 하십시오."));
 				} else {
-					out.println("<script>");
-					out.println("	alert(\"로그인 하는 도중 오류가 발생했습니다.\");");
-					out.println("	history.go(-1);");
-					out.println("</script>");
+					out.println(CdpMsg.error("로그인 하는 도중 오류가 발생했습니다."));
 				}
-				
+			} else if("logout".equals(cmd)){
+				session.removeAttribute("CdpUserObj");
+				if(toUrl != null && !toUrl.equals("")){
+					res.sendRedirect(toUrl);
+				} else {
+					out.println(CdpMsg.approachError());
+				}
 			}
 			
 		}

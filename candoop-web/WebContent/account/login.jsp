@@ -26,7 +26,7 @@ function login(){
 		<button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
 		<button class="btn btn-lg btn-success btn-block" type="button" onclick="location.href='/Signin'">회원가입</button>
 		<input type="hidden" name="cmd" value="login" />
-		<input type="hidden" name="toUrl" value="/Main" />
+		<input type="hidden" name="toUrl" value="/View" />
 	</form>
 
 </div>

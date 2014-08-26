@@ -24,8 +24,8 @@ DataEntity[] grpDatas = dao.getGrp();
 <form role="form" name="signinFrm" action="javascript:signin();">
 	<div class="row center-block">
 		<h4>
-			<label for="aGrp"><span class="text-red">*</span> 소속 <small>소속된 단체을 선택하거나 새로 생성하십시오.</small></label>
-			<button type="button" class="btn btn-primary btn-small" data-toggle="modal" data-target="#newGrp">신규단체 등록</button>
+			<label for="aGrp"><span class="text-red">*</span> 소속 <small>소속된 그룹을 선택하거나 새로 생성하십시오.</small></label>
+			<button type="button" class="btn btn-primary btn-small" data-toggle="modal" data-target="#newGrp">신규그룹 등록</button>
 		</h4>
 		<div class="col-sm-4 form-signin-col">
 			<select class="form-control" id="grpId" name="grpId" onchange="aGrpTitle();">
@@ -183,18 +183,17 @@ for(int i=0; i < grpDatas.length; i++){
 				<a type="button" class="btn btn-danger btn-block" href="javascript:history.go(-1);">취소</a>
 			</div>
 		</div>
-		<input type="hidden" name="cmd" />
-		<input type="hidden" name="toUrl" />
+		<input type="hidden" name="cmd" value="signin" />
+		<input type="hidden" name="toUrl" value="/View" />
 	</div>
 	
 </form>
 <!-- 회원 가입 폼 끝 -->
 
-
 <%
 DataEntity[] grpDeptDatas = dao.getGrpDept();
 %>
-<!-- 단체 등록 모달 폼 시작 -->
+<!-- 그룹 등록 모달 폼 시작 -->
 <form role="form" name="newGrpFrm" action="javascript:newGrp();">
 <div class="modal fade" id="newGrp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 <div class="modal-dialog">
@@ -204,17 +203,17 @@ DataEntity[] grpDeptDatas = dao.getGrpDept();
 	<button type="button" class="close" data-dismiss="modal">
 		<span aria-hidden="true"></span><span class="sr-only">Close</span></button>
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	<h4 class="modal-title" id="myModalLabel">신규단체 등록</h4>
+	<h4 class="modal-title" id="myModalLabel">신규그룹 등록</h4>
 </div>
 
 <div class="modal-body">
 
 	<div class="row center-block">
 		<h4>
-			<label for="grpId"><span class="text-red">*</span> 단체 아이디 <small>8자 이내 영문 소문자</small></label>
+			<label for="grpId"><span class="text-red">*</span> 그룹 아이디 <small>8자 이내 영문 소문자</small></label>
 		</h4>
 		<div class="col-sm-3 form-signin-col">
-			<input type="text" class="form-control" id="grpGrpId" name="grpId" placeholder="단체 아이디" required="required" maxlength="8" onkeyup="putGrpId();"/>
+			<input type="text" class="form-control" id="grpGrpId" name="grpId" placeholder="그룹 아이디" required="required" maxlength="8" onkeyup="putGrpId();"/>
 		</div>
 		<div class="col-sm-2">
 			<button type="button" class="btn btn-primary btn-block" id="chIdBtn" onclick="checkGrp();">중복확인</button>
@@ -223,10 +222,10 @@ DataEntity[] grpDeptDatas = dao.getGrpDept();
 	
 	<div class="row center-block">
 		<h4>
-			<label for="grpName"><span class="text-red">*</span> 단체명 <small>10자 이내</small></label>
+			<label for="grpName"><span class="text-red">*</span> 그룹명 <small>10자 이내</small></label>
 		</h4>
 		<div class="col-sm-4 form-signin-col">
-			<input type="text" class="form-control" id="grpName" name="grpName" placeholder="단체명" required="required" maxlength="10" />
+			<input type="text" class="form-control" id="grpName" name="grpName" placeholder="그룹명" required="required" maxlength="10" />
 		</div>
 	</div>
 	
@@ -235,13 +234,13 @@ DataEntity[] grpDeptDatas = dao.getGrpDept();
 			<label for="grpText"><span class="text-red">*</span> 설명 <small>50자 이내</small></label>
 		</h4>
 		<div class="col-sm-10 form-signin-col">
-			<input type="text" class="form-control" id="grpText" name="grpText" placeholder="단체 설명" required="required" maxlength="50" />
+			<input type="text" class="form-control" id="grpText" name="grpText" placeholder="그룹 설명" required="required" maxlength="50" />
 		</div>
 	</div>
 	
 	<div class="row center-block">
 		<h4>
-			<label for="grpDept"><span class="text-red">*</span> 구분 <small>단체가 소속된 영역 선택</small></label>
+			<label for="grpDept"><span class="text-red">*</span> 구분 <small>그룹이 속한 범위 선택</small></label>
 		</h4>
 		<div class="col-sm-4 form-signin-col">
 			<select class="form-control" id="grpDept" name="grpDept" onchange="aGrpDeptTitle();">
@@ -278,7 +277,7 @@ for(int i=0; i < grpDeptDatas.length; i++){
 <input type="hidden" name="cmd" value="insertAcGrp" />
 <input type="hidden" name="toUrl" value="/Signin" />
 </form>
-<!-- 단체 등록 모달 폼 끝 -->
+<!-- 그룹 등록 모달 폼 끝 -->
 
 </div>
 <!-- 하단 푸터 시작 -->

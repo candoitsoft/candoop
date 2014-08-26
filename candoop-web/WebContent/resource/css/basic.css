@@ -10,7 +10,6 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 80px;
-  background-color: #eee;
 }
 
 .footer {

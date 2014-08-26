@@ -108,8 +108,6 @@ function signin() {
 			$("#email").val($("#email1").val()+"@"+$("#email2").val());
 			console.log($("#email").val());
 			frm.method="POST";
-			frm.cmd.value="signin";
-			frm.toUrl.value="/";
 			frm.action="/Confirm";
 			frm.submit();
 		}
