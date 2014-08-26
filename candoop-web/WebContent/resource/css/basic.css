@@ -1,0 +1,35 @@
+* {font-family:'Nanum Barun Gothic';}
+.text-red {color:red}
+.text-blue {color:blue}
+.text-white {color:#FFFFFF }
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 80px;
+  background-color: #eee;
+}
+
+.footer {
+  position: absolute;
+  padding: 6px;
+  font-size: 11px;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 65px;
+  background-color: #222;
+  color: #eee;
+}
+.footer a{
+	color: #529BDA;
+}
+.footer a:ACTIVE, .footer a:HOVER {
+	color: #F00;
+}
+.navbar {
+    border-radius: 0px;
+}
