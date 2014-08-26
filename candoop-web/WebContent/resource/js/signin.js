@@ -183,10 +183,10 @@ function aGrpDeptTitle(){
 	$("#grpDeptTitle").html(tTitle);
 }
 function checkGrp(){
-	var grpIdVal = $("#grpId").val();
+	var grpIdVal = $("#grpGrpId").val();
 	if(grpIdVal === ""){
 		alert("단체 아이디를 입력하세요.");
-		$("#grpId").focus();
+		$("#grpGrpId").focus();
 		return;
 	}
 	$.ajax({

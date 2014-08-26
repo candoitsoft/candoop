@@ -214,7 +214,7 @@ DataEntity[] grpDeptDatas = dao.getGrpDept();
 			<label for="grpId"><span class="text-red">*</span> 단체 아이디 <small>8자 이내 영문 소문자</small></label>
 		</h4>
 		<div class="col-sm-3 form-signin-col">
-			<input type="text" class="form-control" id="grpId" name="grpId" placeholder="단체 아이디" required="required" maxlength="8" onkeyup="putGrpId();"/>
+			<input type="text" class="form-control" id="grpGrpId" name="grpId" placeholder="단체 아이디" required="required" maxlength="8" onkeyup="putGrpId();"/>
 		</div>
 		<div class="col-sm-2">
 			<button type="button" class="btn btn-primary btn-block" id="chIdBtn" onclick="checkGrp();">중복확인</button>
